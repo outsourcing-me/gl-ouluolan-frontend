@@ -1,29 +1,29 @@
 <template>
-  <section class="subLayout">
-    <div class="breadcrumbsContainer" v-if="!crumbsHidden">
-      <el-breadcrumb v-if="crumbsVisible" class="breadcrumbs" separator-class="iconfont icon-triangle-right">
-        <el-breadcrumb-item v-for="crumb in crumbs" :to="{name: crumb.routeName}" :key="crumb.routeName">{{crumb.name}}</el-breadcrumb-item>
-      </el-breadcrumb>
+  <section class="sublayout">
+    <div class="head-content">
+      <dt-header></dt-header>
+      <div class="breadcrumbs__container" v-if="!crumbsDisabled">
+        <h2>{{crumbs[crumbs.length - 1].name}}</h2>
+        <el-breadcrumb v-if="crumbsVisible" class="breadcrumbs">
+          <el-breadcrumb-item v-for="crumb in crumbs" :to="{name: crumb.routeName}" :key="crumb.routeName">{{crumb.name}}</el-breadcrumb-item>
+        </el-breadcrumb>
+      </div>
     </div>
-    <router-view ref="routerView"></router-view>
+    <main class="main-content">
+      <router-view ref="routerView"></router-view>
+    </main>
   </section>
 </template>
 
 <script>
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 import { globalBus } from '@/common/bus.js'
+import DtHeader from '@/views/_components/Header.vue'
 
-export default {
-  props: {
-    icon: String,
-    name: String,
-    crumbsHidden: Boolean,
-    menus: {
-      type: Array,
-      default() {
-        return []
-      }
-    }
-  },
+@Component({ components: { DtHeader } })
+export default class SubLayout extends Vue {
+  @Prop({ type: Boolean, default: false })
+  crumbsDisabled
 
   mounted() {
     globalBus.$on('window-resize', e => {
@@ -31,76 +31,85 @@ export default {
       childView._initViewSize && childView._initViewSize()
       childView._initCardResize && childView._initCardResize()
     })
-  },
+  }
 
   beforeDestroy() {
     globalBus.$off('window-resize')
-  },
+  }
 
-  methods: {
-    _updateCrumbs() {
-      if (this.$route.matched.length < 3) {
-        this.crumbsVisible = false
-      } else {
-        this.crumbsVisible = true
-        this.crumbs = this.$route.matched.slice(1).map(v => {
-          return {
-            name: v.meta.title.split('-')[0],
-            routeName: v.name
-          }
-        })
-      }
+  _updateCrumbs() {
+    if (this.$route.matched.length < 3) {
+      this.crumbsVisible = false
+    } else {
+      this.crumbsVisible = true
+      this.crumbs = this.$route.matched.slice(1).map(v => {
+        return {
+          name: v.meta.title.split('-')[0],
+          routeName: v.name
+        }
+      })
     }
-  },
+  }
 
-  watch: {
-    menus() {
-      this.currentMenus = this.menus
-    },
-    $route: {
-      immediate: true,
-      handler: '_updateCrumbs'
-    }
-  },
+  @Watch('$route', { immediate: true })
+  _updateCrumbs
 
   data() {
     return {
       crumbsVisible: true,
-      crumbs: [],
-      currentMenus: this.menus
+      crumbs: []
     }
   }
 }
 </script>
 
-<style lang="scss">
-.breadcrumbsContainer {
-  padding-bottom: 15px;
+<style lang="scss" scoped>
+.head-content {
+  position: fixed;
+  top: 0;
+  left: $--menu-width;
+  right: 0;
 }
-.breadcrumbs {
-  padding: 0 10px;
-  line-height: 34px;
-  height: 34px;
-  background-color: #161616;
-  box-shadow: inset 0 1px 0 0 rgba(60, 60, 60, 0.5);
+.main-content {
+  margin-top: $--crumbs-height + $--header-height;
+  padding: $--container-padding;
+  // height: calc(100% - #{$--crumbs-height + $--header-height});
+  // overflow-y: auto;
+}
+.breadcrumbs__container {
+  @include flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height: $--crumbs-height;
+  border-bottom: 1px solid $--border-color;
+  background-color: rgba(blue, 0.1);
+  h2 {
+    padding-left: $--container-padding;
+  }
+  // padding-bottom: 15px;
+}
+.breadcrumbs /deep/ {
+  padding: 0 $--container-padding;
+  line-height: 30px;
+  // box-shadow: inset 0 1px 0 0 rgba(60, 60, 60, 0.5);
   // margin-bottom: 15px;
   .el-breadcrumb__inner {
-    color: white;
+    color: $--primary-font-color;
     font-size: 12px;
   }
   .el-breadcrumb__inner a,
   .el-breadcrumb__inner.is-link {
-    color: white;
+    color: $--minor-font-color;
     cursor: pointer;
     &:hover {
-      color: $primary-color;
+      color: $--primary-color;
     }
   }
   .el-breadcrumb__item:last-child .el-breadcrumb__inner,
   .el-breadcrumb__item:last-child .el-breadcrumb__inner a,
   .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover,
   .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
-    color: white;
+    color: $--primary-font-color;
     font-size: 20px;
   }
 }

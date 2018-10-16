@@ -1,5 +1,4 @@
 import { get, keys, isNil, every } from 'lodash'
-
 import { isIdcard } from '@/common/util.js'
 import i18n from '@/i18n'
 

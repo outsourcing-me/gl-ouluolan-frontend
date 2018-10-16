@@ -25,7 +25,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.name !== undefined) {
-    document.body.setAttribute('class', to.name)
+    document.body.setAttribute('route', to.name)
   }
 
   if (document.querySelector(nprogress.settings.parent)) nprogress.start()

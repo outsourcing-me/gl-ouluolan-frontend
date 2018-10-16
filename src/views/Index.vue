@@ -32,13 +32,12 @@ export default class Index extends Vue {
     let text = do {
       this?.text + ' do ' // eslint-disable-line
     }
-    // eslint-disable-next-line
     return (text |> this.processData) + this?.text2 + ' computed' + this?.number + this.empty2 ?? 'empty2'
   }
 
   get textComputed2() {
     // prettier-ignore
-    this.empty = this.empty || 'haha' // 用 ||= 会导致prettier 不工作
+    this.empty = this?.empty || 'haha' // 用 ||= 会导致prettier 不工作
     return this.empty
   }
 

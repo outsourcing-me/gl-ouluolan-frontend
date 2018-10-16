@@ -5,8 +5,8 @@ module.exports = {
     ['@babel/plugin-proposal-optional-chaining'],
     ['@babel/plugin-proposal-numeric-separator'],
     ['@babel/plugin-proposal-throw-expressions'],
-    ['@babel/plugin-proposal-nullish-coalescing-operator'], // 当前babel-eslint 和 eslint版本会报错
-    ['@babel/plugin-proposal-logical-assignment-operators'], // 当前babel-eslint 和 eslint版本会报错
+    ['@babel/plugin-proposal-nullish-coalescing-operator'],
+    ['@babel/plugin-proposal-logical-assignment-operators'],
     ['@babel/plugin-proposal-function-sent'],
     ['@babel/plugin-proposal-function-bind'],
     ['@babel/plugin-proposal-export-namespace-from'],
@@ -18,6 +18,6 @@ module.exports = {
         legacy: true
       }
     ],
-    ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }] //当前babel-eslint 和 eslint版本会报错
+    ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }]
   ]
 }

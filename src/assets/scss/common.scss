@@ -1,11 +1,15 @@
+html {
+  height: 100vh;
+  overflow: hidden;
+}
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; // font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light', 'Microsoft YaHei', Arial, sans-serif;
   min-width: 1200px;
   overflow: hidden;
   overflow-x: auto;
   min-height: 100vh;
-  min-height: calc(100% - #{$header-height});
-  color: $primary-font-color;
+  // min-height: calc(100% - #{$--header-height});
+  color: $--primary-font-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   &.login {
@@ -18,31 +22,31 @@ body {
 }
 
 .color-green {
-  color: $color-green;
+  color: $--color-green;
 }
 
 .color-red {
-  color: $color-red;
+  color: $--color-red;
 }
 
 .color-yellow {
-  color: $color-yellow;
+  color: $--color-yellow;
 }
 
 .color-orange {
-  color: $color-orange;
+  color: $--color-orange;
 }
 
 .color-blue {
-  color: $color-blue;
+  color: $--color-blue;
 }
 
 .color-gray {
-  color: $color-unimportant;
+  color: $--color-unimportant;
 }
 
 .center {
-  @include center;
+  @extend %center;
 }
 
 .dib {
@@ -88,11 +92,11 @@ body {
 .small,
 small {
   font-size: 80%;
-  color: $color-unimportant;
+  color: $--color-unimportant;
 }
 
 em {
-  color: $color-orange;
+  color: $--color-orange;
 }
 
 .fl {
@@ -261,17 +265,17 @@ center {
 }
 
 .bd-l {
-  border-left: 1px solid $border-color;
+  border-left: 1px solid $--border-color;
 }
 
 .bd-t {
-  border-top: 1px solid $border-color;
+  border-top: 1px solid $--border-color;
 }
 
 .bd-r {
-  border-right: 1px solid $border-color;
+  border-right: 1px solid $--border-color;
 }
 
 .bd-b {
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $--border-color;
 }

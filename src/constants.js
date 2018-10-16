@@ -80,6 +80,7 @@ export const TAG_STATUS_MAP = {
   AUDITPASS: 1, //审核合格
   AUDITFAIL: 2 //审核不合格
 }
+
 //属性控件类型
 export const CONTROL_TYPE_MAP = {
   TEXTBOXCONTROL: 0, //文本框
