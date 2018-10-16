@@ -5,7 +5,7 @@ export default [
   {
     path: '/',
     name: 'root',
-    redirect: { name: 'index' },
+    redirect: { name: 'dashboard' },
     component: () => import('@/views/Layout.vue'),
     children: flatten(routes.keys().map(key => routes(key).default))
   },
