@@ -61,7 +61,7 @@ export default [
   },
   {
     name: 'queryUser', //根据id获取用户详情
-    url: '/api-usr/user/detail/:id',
+    url: '/api-usr/user/detail/:userId',
     methods: ['get']
   },
   {
@@ -121,7 +121,7 @@ export default [
   },
   {
     name: 'queryOrg',
-    url: '/api-usr/org/detail/:id',
+    url: '/api-usr/org/detail/:orgId',
     methods: ['get']
   },
   {
@@ -141,7 +141,7 @@ export default [
   },
   {
     name: 'queryContract', //查看项目详情
-    url: '/api-config/contract/detail/:id',
+    url: '/api-config/contract/detail/:contractId',
     methods: ['get']
   },
   {
@@ -156,12 +156,12 @@ export default [
   },
   {
     name: 'getTagStatiscs', //获取任务标注数据统计
-    url: '/api-tag/report/tag/date/:id', // /api-tag/report/tag/date/1?begin=20180101&end=20180110
+    url: '/api-tag/report/tag/date/:taskId', // /api-tag/report/tag/date/1?begin=20180101&end=20180110
     methods: ['get']
   },
   {
     name: 'getAuditStatiscs', //获取任务审核数据统计
-    url: '/api-tag/report/audit/date/:id', // /api-tag/report/tag/date/1?begin=20180101&end=20180110
+    url: '/api-tag/report/audit/date/:taskId', // /api-tag/report/tag/date/1?begin=20180101&end=20180110
     methods: ['get']
   },
   {
@@ -180,8 +180,8 @@ export default [
     methods: ['get']
   },
   {
-    name: 'queryTask',
-    url: '/api-config/task/detail/:id',
+    name: 'queryTask', //获取任务详情
+    url: '/api-config/task/detail/:taskId',
     methods: ['get']
   },
   {
@@ -191,27 +191,27 @@ export default [
   },
   {
     name: 'beginTask', //开启任务
-    url: '/api-config/task/assign/:id',
+    url: '/api-config/task/assign/:taskId',
     methods: ['get']
   },
   {
     name: 'finishTask', //结束任务
-    url: '/api-config/task/finish/:id',
+    url: '/api-config/task/finish/:taskId',
     methods: ['get']
   },
   {
     name: 'copyTask', //复制任务
-    url: '/api-config/task/copy/:id',
+    url: '/api-config/task/copy/:taskId',
     methods: ['get']
   },
   {
     name: 'dataBacToDB', //数据回库
-    url: '/api-tag/operate/tagback/:id',
+    url: '/api-tag/operate/tagback/:taskId',
     methods: ['get']
   },
   {
     name: 'queryTask', //查询任务详情
-    url: '/api-config/task/detail/:id',
+    url: '/api-config/task/detail/:taskId',
     methods: ['get']
   },
   {
@@ -226,7 +226,7 @@ export default [
   },
   {
     name: 'getTaskPropertyList', //获取任务关联属性列表
-    url: '/api-config/task-property/list/:id',
+    url: '/api-config/task-property/list/:taskId',
     methods: ['get']
   },
   {
@@ -238,5 +238,85 @@ export default [
     name: 'deleteTaskProperty', //删除任务关联属性
     url: '/api-config/task-property/delete/',
     methods: ['post']
+  },
+  {
+    name: 'importData', //任务数据导入
+    url: '/api-tag/import/pretag/async/:taskId',
+    methods: ['post']
+  },
+  {
+    name: 'exportData', //任务标注结果导出
+    url: '/api-tag/export/result/:taskId',
+    methods: ['get']
+  },
+  {
+    name: 'exportHistory', //导入导出历史查询
+    url: '/api-tag/import/logs', // /api-tag/import/logs?taskId=1
+    methods: ['get']
+  },
+  {
+    name: 'tagStatiscsReport', //标注人员维度统计
+    url: '/api-report/report/marker/:contractId/:taskId', // /api-report/report/marker/1/1?with_audit=1,表示同时请求标注数据和审核数据
+    methods: ['get']
+  },
+  {
+    name: 'auditStatiscsReport', //审核人员维度统计
+    url: '/api-report/report/audit/marker/:contractId', // /api-report/report/audit/marker/1?taskId=11
+    methods: ['get']
+  },
+  {
+    name: 'getPropertyList', //获取属性列表，查询参数在headers中
+    url: '/api-config/property/list-page/',
+    methods: ['get']
+  },
+  {
+    name: 'deleteProperty', //删除属性
+    url: '/api-config/property/delete/',
+    methods: ['post']
+  },
+  {
+    name: 'addProperty', //新增属性
+    url: '/api-config/property/add/',
+    methods: ['post']
+  },
+  {
+    name: 'updateProperty', //修改属性
+    url: '/api-config/property/update/',
+    methods: ['post']
+  },
+  {
+    name: 'queryProperty', //查询属性详情
+    url: '/api-config/property/detail/:propertyId',
+    methods: ['get']
+  },
+  {
+    name: 'getPropertyItems', //获取属性数据项
+    url: '/api-config/property/detail/:propertyId',
+    methods: ['get']
+  },
+  {
+    name: 'deletePropertyItem', //删除属性数据项
+    url: '/api-config/property_values/delete/',
+    methods: ['post']
+  },
+  {
+    name: 'queryPropertyItem', //查询属性数据项详情
+    url: '/api-config/property_values/detail/:propertyItemId',
+    methods: ['get']
+  },
+  {
+    name: 'addPropertyItem', //新增属性数据项
+    url: '/api-config/property_values/add/',
+    methods: ['post']
+  },
+  {
+    name: 'updatePropertyItem', //修改属性数据项
+    url: '/api-config/property_values/update/',
+    methods: ['post']
+  },
+  {
+    name: 'getTaskPropertyByTaskId', //根据任务id获取对应的表单
+    url: '/api-config/property/tag/:taskId',
+    methods: ['get']
   }
 ]
