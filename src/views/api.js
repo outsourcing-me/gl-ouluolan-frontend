@@ -40,8 +40,13 @@ export default [
     methods: ['post']
   },
   {
-    name: 'changeUserpassword', //管理员修改用户密码
+    name: 'resetUserPassword', //管理员重置用户密码
     url: '/api-usr/user/mgrreset/pwd',
+    methods: ['post']
+  },
+  {
+    name: 'changePassword', //修改自身登录密码
+    url: '/api-usr/user/reset/pwd',
     methods: ['post']
   },
   {
@@ -77,6 +82,11 @@ export default [
   {
     name: 'queryUserOrgRoles', //获取用户在某组织机构中的权限
     url: '/api-usr/permit/userorg/roles/:userId/:orgId',
+    methods: ['get']
+  },
+  {
+    name: 'getUserOrg', //获取用户所在的组织机构
+    url: '/api-usr/user/orgs',
     methods: ['get']
   },
   {
@@ -240,31 +250,6 @@ export default [
     methods: ['post']
   },
   {
-    name: 'importData', //任务数据导入
-    url: '/api-tag/import/pretag/async/:taskId',
-    methods: ['post']
-  },
-  {
-    name: 'exportData', //任务标注结果导出
-    url: '/api-tag/export/result/:taskId',
-    methods: ['get']
-  },
-  {
-    name: 'exportHistory', //导入导出历史查询
-    url: '/api-tag/import/logs', // /api-tag/import/logs?taskId=1
-    methods: ['get']
-  },
-  {
-    name: 'tagStatiscsReport', //标注人员维度统计
-    url: '/api-report/report/marker/:contractId/:taskId', // /api-report/report/marker/1/1?with_audit=1,表示同时请求标注数据和审核数据
-    methods: ['get']
-  },
-  {
-    name: 'auditStatiscsReport', //审核人员维度统计
-    url: '/api-report/report/audit/marker/:contractId', // /api-report/report/audit/marker/1?taskId=11
-    methods: ['get']
-  },
-  {
     name: 'getPropertyList', //获取属性列表，查询参数在headers中
     url: '/api-config/property/list-page/',
     methods: ['get']
@@ -317,6 +302,125 @@ export default [
   {
     name: 'getTaskPropertyByTaskId', //根据任务id获取对应的表单
     url: '/api-config/property/tag/:taskId',
+    methods: ['get']
+  },
+  {
+    name: 'addTagData', //新增标注数据
+    url: '/api-tag/tag/add',
+    methods: ['post']
+  },
+  {
+    name: 'updateTagData', //修改标注数据
+    url: '/api-tag/tag/modify',
+    methods: ['post']
+  },
+  {
+    name: 'getNewTagData', //根据任务id获取一条新的标注数据
+    url: '/api-tag/tag/pre/:taskId', // /api-tag/tag/pre/:taskId?skipTagId=22,加上skipTagId为跳过当前的数据获取新的数据
+    methods: ['get']
+  },
+  {
+    name: 'getTagData', //标注人员获取已审核的标注数据
+    url: '/api-tag/tag/audut/:tagId',
+    methods: ['get']
+  },
+  {
+    name: 'getNextAuditData', //审核人员获取一条未审核数据，参数存在headers中
+    url: '/api-tag/audut/next',
+    methods: ['get']
+  },
+  {
+    name: 'getAuditData', //审核人员获取已审核的数据
+    url: '/api-tag/audit/data/:auditId',
+    methods: ['get']
+  },
+  {
+    name: 'modifyPassByCharger', //小组长修改通过
+    url: '/api-tag/tag/mgr/modify',
+    methods: ['post']
+  },
+  {
+    name: 'auditData', //提交审核数据
+    url: '/api-tag/sample/audit',
+    methods: ['post']
+  },
+  {
+    name: 'getSampleList', //获取样本列表
+    url: '/api-tag/sample/list',
+    methods: ['get']
+  },
+  {
+    name: 'addNewSample', //抽取新样本
+    url: '/api-tag/sample/execute',
+    methods: ['post']
+  },
+  {
+    name: 'finishSample', //结束样本
+    url: '/api-tag/sample/finish/:sampleId',
+    methods: ['get']
+  },
+  {
+    name: 'getTaskSample', //获取任务所有样本
+    url: '/api-tag/sample/current/:taskId',
+    methods: ['get']
+  },
+  {
+    name: 'getAuditDataFromSample', //根据样本类型和样本id获取审核数据
+    url: '/api-tag/sample/next/:sampleType/:sampleId',
+    methods: ['get']
+  },
+  {
+    name: 'redoTag', //返工：全部重做标注
+    url: '/api-tag/tag/rework',
+    methods: ['post']
+  },
+  {
+    name: 'getTaggerListByCharger', //小组长获取标注人员列表
+    url: '/api-tag/sample/statistics/cur/',
+    methods: ['post']
+  },
+  {
+    name: 'getAuditProcessList', //获取审核人员审核进度列表
+    url: '/api-tag/sample/statistics/auditor',
+    methods: ['get']
+  },
+  {
+    name: 'getTagProcessList', //获取标注人员标注进度列表
+    url: '/api-tag/tag/count/list',
+    methods: ['get']
+  },
+  {
+    name: 'modifyPassByAuditor', //审核修改通过
+    url: '/api-tag/sample/modifyPass',
+    methods: ['post']
+  },
+  {
+    name: 'getTagStaticsCount', //获取标注统计结果
+    url: '/api-tag/tag/count/statistics/:taskId',
+    methods: ['get']
+  },{
+    name: 'importData', //任务数据导入
+    url: '/api-tag/import/pretag/async/:taskId',
+    methods: ['post']
+  },
+  {
+    name: 'exportData', //任务标注结果导出
+    url: '/api-tag/export/result/:taskId',
+    methods: ['get']
+  },
+  {
+    name: 'exportHistory', //导入导出历史查询
+    url: '/api-tag/import/logs', // /api-tag/import/logs?taskId=1
+    methods: ['get']
+  },
+  {
+    name: 'tagStatiscsReport', //标注人员维度统计
+    url: '/api-report/report/marker/:contractId/:taskId', // /api-report/report/marker/1/1?with_audit=1,表示同时请求标注数据和审核数据
+    methods: ['get']
+  },
+  {
+    name: 'auditStatiscsReport', //审核人员维度统计
+    url: '/api-report/report/audit/marker/:contractId', // /api-report/report/audit/marker/1?taskId=11
     methods: ['get']
   }
 ]
