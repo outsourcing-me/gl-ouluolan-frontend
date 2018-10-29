@@ -3,7 +3,7 @@
     <section class="info">
       <img class="info__avatar" src="~assets/images/men.png" alt="" />
     </section>
-    <nav>
+    <nav class="menus">
       <el-menu :unique-opened="true" :default-openeds="defaultOpeneds" :default-active="defaultActive" :router="true" ref="menus">
         <template v-for="menu in menus">
           <el-submenu v-if="menu.menus" :index="menu.index" v-show="!menu.hidden" :key="menu.index">
@@ -43,7 +43,7 @@ export default class Menu extends Vue {
           hidden: !this.$_dt_permit(c1.meta.permit)
         })
 
-        if (c1.children && c1.meta.hasSubMenus) {
+        if (c1.children && !c1.meta.noSubMenus) {
           menu.menus = []
           each(c1.children, (c2, i2) => {
             if (c2.meta.menu) {
@@ -82,7 +82,7 @@ export default class Menu extends Vue {
    */
   getActive(menus) {
     menus.every(v => {
-      Logger.debug(v.route, v.route.name === this.$route.name)
+      // Logger.debug(v.route, v.route.name === this.$route.name)
       if (v.route && (v.route.name === this.$route.name || (v.activeIncludes || []).includes(this.$route.name))) {
         this.defaultActive = v.index
         if (v.index.includes('-')) {
@@ -109,4 +109,45 @@ export default class Menu extends Vue {
   height: 72px;
   border-radius: 50%;
 }
+.menus /deep/ {
+  .el-menu {
+    border-right: 0;
+  }
+  .el-submenu__title {
+    color: rgba(white, 0.8);
+    &:hover {
+      background: $--menu-active-color;
+      &, &:focus {
+        background: $--menu-active-color;
+      }
+    }
+  }
+  .el-menu-item {
+    color: rgba(white, 0.8);
+    cursor: pointer;
+    padding: 0 15px!important;
+    height: $--menu-height;
+    line-height: $--menu-height;
+    &:hover,
+    &.is-active {
+      &, &:focus {
+        background: $--menu-active-color;
+      }
+    }
+    &:focus {
+      background: none;
+    }
+  }
+  .el-dropdown-menu__item--divided:before,
+  .el-menu,
+  .el-menu--horizontal > .el-menu-item:not(.is-disabled):focus,
+  .el-menu--horizontal > .el-menu-item:not(.is-disabled):hover,
+  .el-menu--horizontal > .el-submenu .el-submenu__title:hover {
+    background: none;
+  }
+  .el-submenu .el-menu {
+    border-left: 3px solid $--primary-color;
+  }
+}
+
 </style>

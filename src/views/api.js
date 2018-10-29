@@ -210,11 +210,6 @@ export default [
     methods: ['get']
   },
   {
-    name: 'queryTask', //查询任务详情
-    url: '/api-config/task/detail/:taskId',
-    methods: ['get']
-  },
-  {
     name: 'addTask', //新增任务
     url: '/api-config/task/add/',
     methods: ['post']
@@ -264,11 +259,11 @@ export default [
     url: '/api-config/property/detail/:propertyId',
     methods: ['get']
   },
-  {
-    name: 'getPropertyItems', //获取属性数据项
-    url: '/api-config/property/detail/:propertyId',
-    methods: ['get']
-  },
+  // {
+  //   name: 'getPropertyItems', //获取属性数据项
+  //   url: '/api-config/property/detail/:propertyId',
+  //   methods: ['get']
+  // },
   {
     name: 'deletePropertyItem', //删除属性数据项
     url: '/api-config/property_values/delete/',
@@ -388,7 +383,8 @@ export default [
     name: 'getTagStaticsCount', //获取标注统计结果
     url: '/api-tag/tag/count/statistics/:taskId',
     methods: ['get']
-  },{
+  },
+  {
     name: 'importData', //任务数据导入
     url: '/api-tag/import/pretag/async/:taskId',
     methods: ['post']

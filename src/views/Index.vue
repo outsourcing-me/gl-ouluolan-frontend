@@ -54,3 +54,12 @@ export default class Index extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.index {
+  position: fixed 0 0 |;
+  size: 100px;
+  margin: | auto;
+  color: red blue;
+}
+</style>

@@ -8,8 +8,8 @@ export default {
   },
   meta: {
     permit: [],
-    title: 'Dashboard',
-    hasSubMenus: false,
+    title: '数据标注平台',
+    noSubMenus: true,
     menu: {
       name: 'Dashboard',
       routeName: 'dashboardIndex',
@@ -22,7 +22,7 @@ export default {
       name: 'dashboardIndex',
       component: () => import('@/views/dashboard/Index.vue'),
       meta: {
-        title: 'Dashboard',
+        title: 'Dashboard-数据标注平台',
         permit: []
       }
     }

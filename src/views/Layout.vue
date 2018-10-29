@@ -17,7 +17,7 @@ export default class Layout extends Vue {}
 .body {
   margin-left: $--menu-width;
 }
-.menu /deep/ {
+.menu {
   position: fixed;
   left: 0;
   top: 0;
@@ -25,31 +25,5 @@ export default class Layout extends Vue {}
   overflow-y: auto;
   background: $--menu-bg-color;
   width: $--menu-width;
-  .el-menu {
-    border-right: 0;
-  }
-  .el-menu-item {
-    color: white;
-    cursor: pointer;
-    padding: 0 15px!important;
-    height: $--menu-height;
-    line-height: $--menu-height;
-    &:hover,
-    &.is-active {
-      &, &:focus {
-        background: $--menu-active-color;
-      }
-    }
-    &:focus {
-      background: none;
-    }
-  }
-  .el-dropdown-menu__item--divided:before,
-  .el-menu,
-  .el-menu--horizontal > .el-menu-item:not(.is-disabled):focus,
-  .el-menu--horizontal > .el-menu-item:not(.is-disabled):hover,
-  .el-menu--horizontal > .el-submenu .el-submenu__title:hover {
-    background: none;
-  }
 }
 </style>

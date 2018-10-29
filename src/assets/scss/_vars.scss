@@ -77,10 +77,10 @@ $--font-size-xxs: 12px;
   transform: translateX(-50%) translateY(-50%);
 }
 
-@mixin flex($xAlign: center, $yAlign: center) {
+@mixin flex($x-align: center, $y-align: center) {
   display: flex;
-  justify-content: $xAlign;
-  align-items: $yAlign;
+  justify-content: $x-align;
+  align-items: $y-align;
 }
 // %red-repeat-bg {
 //   background: repeating-linear-gradient(
