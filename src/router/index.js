@@ -20,7 +20,7 @@ const router = new VueRouter({
       return { x: 0, y: 0 }
     }
   },
-  routes
+  routes,
 })
 
 router.beforeEach((to, from, next) => {
@@ -40,21 +40,21 @@ router.beforeEach((to, from, next) => {
     next({
       name: 'login',
       query: {
-        redirect: to.name !== 'login' ? to.fullPath : ''
-      }
+        redirect: to.name !== 'login' ? to.fullPath : '',
+      },
     })
   } else if (!to.meta.skipAuth && !authorities.length) {
     MessageBox({
       message: '您没有任何权限！',
       title: '提示',
-      type: 'error'
+      type: 'error',
     })
 
     next({
       name: 'login',
       query: {
-        redirect: to.name !== 'login' ? to.fullPath : ''
-      }
+        redirect: to.name !== 'login' ? to.fullPath : '',
+      },
     })
     // store.dispatch('getPermissions').then((data) => {
     //   if (data.code === 200) {
@@ -96,20 +96,20 @@ function getPermitRoute(to) {
 
       if (firstRoute) {
         resolve({
-          name: firstRoute.name
+          name: firstRoute.name,
         })
       } else {
         MessageBox({
           message: '您没有任何权限！',
           title: '提示',
-          type: 'error'
+          type: 'error',
         })
 
         resolve({
           name: 'login',
           query: {
-            redirect: to.name !== 'login' ? to.fullPath : ''
-          }
+            redirect: to.name !== 'login' ? to.fullPath : '',
+          },
         })
       }
     }
@@ -128,9 +128,9 @@ export default {
       render: h => h(App),
       store,
       i18n,
-      router
+      router,
     }).$mount('#app')
-  }
+  },
 }
 
 export { router }

@@ -32,7 +32,7 @@ export default {
               this.$options._dt_hooks[k].call(this)
             }
             this.$options[k] = this.$options[k].concat(
-              this.$options._dt_hooks[k]
+              this.$options._dt_hooks[k],
             )
           })
         }
@@ -45,11 +45,11 @@ export default {
               this.$options.watch[k] = [this.$options.watch[k]]
             }
             this.$options.watch[k] = this.$options.watch[k].concat(
-              this.$options._dt_watches[k]
+              this.$options._dt_watches[k],
             )
           })
         }
-      }
+      },
     })
-  }
+  },
 }

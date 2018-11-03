@@ -14,7 +14,7 @@ export default {
       validateArrayDeep: '{name}不能为空',
       validateObject: '{name}不能为空',
       validateEqual: '请输入相同的{name}',
-      validateIdCard: '请输入正确的身份证号码'
-    }
-  }
+      validateIdCard: '请输入正确的身份证号码',
+    },
+  },
 }

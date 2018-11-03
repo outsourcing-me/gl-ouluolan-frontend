@@ -13,9 +13,9 @@ export function validateBlackSpace(rule, value, cb) {
       new Error(
         rule.message ||
           i18n.t('global.validator.validateBlackSpace', {
-            name: rule.filedName
-          })
-      )
+            name: rule.filedName,
+          }),
+      ),
     )
   } else {
     cb()
@@ -36,8 +36,8 @@ export function validateCenterBS(rule, value, cb) {
     cb(
       new Error(
         rule.message ||
-          i18n.t('global.validator.validateCenterBS', { name: rule.filedName })
-      )
+          i18n.t('global.validator.validateCenterBS', { name: rule.filedName }),
+      ),
     )
   } else {
     cb()
@@ -50,8 +50,8 @@ export function validateLength(rule, value, cb) {
     cb(
       new Error(
         rule.message ||
-          i18n.t(global.validator.validateLength, { name: rule.fileName })
-      )
+          i18n.t(global.validator.validateLength, { name: rule.fileName }),
+      ),
     )
   } else {
     cb()
@@ -64,8 +64,8 @@ export function validateArray(rule, value, cb) {
     cb(
       new Error(
         rule.message ||
-          i18n.t('global.validator.validateArray', { name: rule.filedName })
-      )
+          i18n.t('global.validator.validateArray', { name: rule.filedName }),
+      ),
     )
   } else {
     cb()
@@ -78,8 +78,8 @@ export function validateArrayDeep(rule, value, cb) {
     cb(
       new Error(
         rule.message ||
-          i18n.t('global.validator.validateArrayDeep', { name: rule.filedName })
-      )
+          i18n.t('global.validator.validateArrayDeep', { name: rule.filedName }),
+      ),
     )
   } else {
     const valid = every(value, item => {
@@ -106,8 +106,8 @@ export function validateObject(rule, value, cb) {
     cb(
       new Error(
         rule.message ||
-          i18n.t('global.validator.validateObject', { name: rule.filedName })
-      )
+          i18n.t('global.validator.validateObject', { name: rule.filedName }),
+      ),
     )
   }
   const valid = every(keys(value), k => {
@@ -128,8 +128,8 @@ export function validateEqual(rule, value, cb) {
   if (value !== get(this, rule.compare)) {
     cb(
       new Error(
-        i18n.t('global.validator.validateEqual', { name: rule.compareName })
-      )
+        i18n.t('global.validator.validateEqual', { name: rule.compareName }),
+      ),
     )
   } else {
     cb()

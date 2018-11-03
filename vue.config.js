@@ -20,9 +20,9 @@ module.exports = {
       .tap(options =>
         merge(options, {
           loaders: {
-            i18n: '@kazupon/vue-i18n-loader'
-          }
-        })
+            i18n: '@kazupon/vue-i18n-loader',
+          },
+        }),
       )
 
     config.module
@@ -30,9 +30,14 @@ module.exports = {
       .use('file-loader')
       .loader('vue-svg-loader')
 
+    config.module.rule('svg').exclude.add(resolve('./src/assets/fonts'))
+
     config.module
-      .rule('js')
-      .exclude.add(resolve('./src/vendor'))
+      .rule('fonts')
+      .test(/\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/i)
+      .use('url-loader')
+
+    config.module.rule('js').exclude.add(resolve('./src/vendor'))
 
     config.module.rule('eslint').exclude.add(resolve('./src/vendor'))
 
@@ -45,8 +50,8 @@ module.exports = {
           algorithm: 'gzip',
           test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$'),
           threshold: 8192,
-          minRatio: 0.8
-        }
+          minRatio: 0.8,
+        },
       ])
     }
   },
@@ -65,11 +70,11 @@ module.exports = {
       sass: {
         // data: `@import "@/assets/scss/_vars.scss";`
         // data: fs.readFileSync('src/assets/scss/_vars.scss', 'utf-8')
-      }
+      },
     },
     // Enable CSS modules for all css / pre-processor files.
     // This option does not affect *.vue files.
-    modules: false
+    modules: false,
   },
   // generate sourceMap for production build?
   productionSourceMap: false,
@@ -91,7 +96,7 @@ module.exports = {
     hotOnly: true,
     overlay: {
       warnings: true,
-      errors: true
+      errors: true,
     },
     // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy
     proxy: {
@@ -100,29 +105,29 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: function(path) {
           return path.replace('/api/', '/')
-        }
+        },
       },
       '/socket': {
         target: 'http://192.168.193.41:9015',
         changeOrigin: true,
         pathRewrite: function(path) {
           return path.replace('/socket/', '/')
-        }
+        },
       },
       '/map_api': {
         target: 'http://192.168.193.41:8666',
         changeOrigin: true,
         pathRewrite: function(path) {
           return path.replace('/map_api/', '/')
-        }
-      }
+        },
+      },
     }, // string | Object
-    before: app => {}
+    before: app => {},
   },
   pluginOptions: {
     'style-resources-loader': {
       patterns: [resolve('./src/assets/scss/_vars.scss')],
-      preProcessor: 'scss'
-    }
-  }
+      preProcessor: 'scss',
+    },
+  },
 }

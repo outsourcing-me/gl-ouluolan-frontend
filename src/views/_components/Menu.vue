@@ -1,23 +1,17 @@
 <template>
-  <aside>
-    <section class="info">
-      <img class="info__avatar" src="~assets/images/men.png" alt="" />
-    </section>
-    <nav class="menus">
-      <el-menu :unique-opened="true" :default-openeds="defaultOpeneds" :default-active="defaultActive" :router="true" ref="menus">
-        <template v-for="menu in menus">
-          <el-submenu v-if="menu.menus" :index="menu.index" v-show="!menu.hidden" :key="menu.index">
-            <template slot="title"><i class="iconfont icon-color" :class="menu.icon"></i>{{menu.name}}</template>
-            <el-menu-item v-for="item in menu.menus" :index="item.index" :route="item.route" :key="item.index" v-show="!item.hidden">{{item.name}}
-            </el-menu-item>
-          </el-submenu>
-          <el-menu-item v-else :index="menu.index" :route="menu.route" v-show="!menu.hidden" :key="menu.index">
-            <i class="iconfont icon-color" :class="menu.icon"></i>{{menu.name}}
-          </el-menu-item>
-        </template>
-      </el-menu>
-    </nav>
-  </aside>
+  <nav class="menus">
+    <el-menu class="menu-container" :unique-opened="true" mode="horizontal" :default-openeds="defaultOpeneds" :default-active="defaultActive" :router="true" ref="menus">
+      <template v-for="menu in menus">
+        <el-menu-item :index="menu.index" :route="menu.route" v-show="!menu.hidden" :key="menu.index">
+          {{menu.name}}
+        </el-menu-item>
+      </template>
+    </el-menu>
+    <div class="contact ml10">
+      <i class="iconfont icon-contact mr5"></i>
+      <a href="tel://4001515876">4001515876</a>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -40,7 +34,7 @@ export default class Menu extends Vue {
       if (c1.meta.menu) {
         const menu = merge(cloneDeep(c1.meta.menu), {
           index: i1 + '',
-          hidden: !this.$_dt_permit(c1.meta.permit)
+          hidden: !this.$_dt_permit(c1.meta.permit),
         })
 
         if (c1.children && !c1.meta.noSubMenus) {
@@ -51,16 +45,16 @@ export default class Menu extends Vue {
                 merge(cloneDeep(c2.meta.menu), {
                   index: `${i1}-${i2}`,
                   route: {
-                    name: c2.meta?.menu.routeName || c2.name
+                    name: c2.meta?.menu.routeName || c2.name,
                   },
-                  hidden: !this.$_dt_permit(c2.meta.permit)
-                })
+                  hidden: !this.$_dt_permit(c2.meta.permit),
+                }),
               )
             }
           })
         } else {
           menu.route = {
-            name: c1.meta?.menu.routeName || c1.name
+            name: c1.meta?.menu.routeName || c1.name,
           }
         }
         menus.push(menu)
@@ -70,7 +64,7 @@ export default class Menu extends Vue {
     const data = {
       defaultOpeneds: [],
       defaultActive: '',
-      menus
+      menus,
     }
 
     return data
@@ -101,53 +95,44 @@ export default class Menu extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.info {
-  padding: 30px 10px 30px 15px;
-}
-.info__avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-}
 .menus /deep/ {
+  .menu-container,
+  .contact {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .contact {
+    color: $--primary-color;
+    font-family: 'tempsitc';
+    font-size: 24px;
+  }
+
   .el-menu {
     border-right: 0;
   }
-  .el-submenu__title {
-    color: rgba(white, 0.8);
-    &:hover {
-      background: $--menu-active-color;
-      &, &:focus {
-        background: $--menu-active-color;
-      }
-    }
+  .el-menu--horizontal {
+    border: none;
   }
   .el-menu-item {
-    color: rgba(white, 0.8);
+    color: $--primary-color;
     cursor: pointer;
-    padding: 0 15px!important;
+    padding: 0 18px !important;
     height: $--menu-height;
     line-height: $--menu-height;
+    font-size: 16px;
+    border-bottom: none;
     &:hover,
     &.is-active {
-      &, &:focus {
-        background: $--menu-active-color;
+      &,
+      &:focus {
+        color: white;
+        background: radial-gradient(circle, #2c9458, #146636);
       }
     }
     &:focus {
       background: none;
     }
   }
-  .el-dropdown-menu__item--divided:before,
-  .el-menu,
-  .el-menu--horizontal > .el-menu-item:not(.is-disabled):focus,
-  .el-menu--horizontal > .el-menu-item:not(.is-disabled):hover,
-  .el-menu--horizontal > .el-submenu .el-submenu__title:hover {
-    background: none;
-  }
-  .el-submenu .el-menu {
-    border-left: 3px solid $--primary-color;
-  }
 }
-
 </style>

@@ -21,7 +21,7 @@ each(msgViewContext.keys(), key => {
 const msgCmpntsContext = require.context(
   '../components',
   true,
-  /i18n\/.+\.js$/
+  /i18n\/.+\.js$/,
 )
 each(msgCmpntsContext.keys(), key => {
   const message = msgCmpntsContext(key).default

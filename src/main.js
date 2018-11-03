@@ -13,7 +13,7 @@ import DtComponents from '@/components/index.js'
 import '@/common/global.js' // 一些全局事件方法
 
 Vue.use(ElementUI, {
-  i18n: (key, value) => i18n.t(key, value)
+  i18n: (key, value) => i18n.t(key, value),
 })
 
 Vue.use(DtConfig)

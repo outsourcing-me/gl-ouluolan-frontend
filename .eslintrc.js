@@ -4,12 +4,12 @@ module.exports = {
     node: true,
     browser: true,
     commonjs: true,
-    es6: true
+    es6: true,
   },
   extends: [
     'plugin:vue/essential',
     // '@vue/prettier'
-    '@vue/standard'
+    '@vue/standard',
   ],
   globals: { Logger: true },
   plugins: ['vue', 'prettier'],
@@ -23,18 +23,28 @@ module.exports = {
     'generator-star-spacing': 0,
     'space-before-function-paren': 0,
     'spaced-comment': [0, 'never'],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'always-multiline',
+      },
+    ],
     indent: [
       2,
       2,
       {
-        SwitchCase: 1
-      }
-    ]
+        SwitchCase: 1,
+      },
+    ],
   },
   parserOptions: {
     parser: 'babel-eslint',
     ecmaFeatures: {
-      legacyDecorators: true
-    }
-  }
+      legacyDecorators: true,
+    },
+  },
 }

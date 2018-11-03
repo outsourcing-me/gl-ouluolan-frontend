@@ -4,7 +4,7 @@ import {
   every,
   each,
   isPlainObject,
-  isObject
+  isObject,
 } from 'lodash'
 import moment from 'moment'
 
@@ -162,7 +162,7 @@ export function preloadImages(images = []) {
         }
         img.src = v.url
       })
-    })
+    }),
   )
 }
 

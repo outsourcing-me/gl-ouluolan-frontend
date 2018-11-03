@@ -10,7 +10,7 @@ const state = {
   user: JSON.parse(window.localStorage.user || '{}') || {},
   token: window.localStorage.token || '',
   lang: window.localStorage.lang || 'zh', // 语言设置
-  permissions: [] // 权限列表
+  permissions: [], // 权限列表
 }
 
 const modules = {}
@@ -27,7 +27,7 @@ const store = new Vuex.Store({
   getters,
   mutations,
   actions,
-  modules
+  modules,
 })
 
 export default store

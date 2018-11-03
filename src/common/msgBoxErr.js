@@ -11,7 +11,7 @@ export default function msgboxErr(message, code = 'UNKNOWN') {
       message,
       code,
       resolve,
-      reject
+      reject,
     })
 
     if (!msgBoxLock) {
@@ -29,7 +29,7 @@ const showNextMsg = function() {
       MessageBox({
         message: currentMsg.message,
         title: '提示',
-        type: 'warning'
+        type: 'warning',
       })
         .then(() => {
           msgQueue.shift()

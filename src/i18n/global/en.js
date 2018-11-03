@@ -1,3 +1,3 @@
 export default {
-  global: {}
+  global: {},
 }

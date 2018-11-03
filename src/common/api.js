@@ -22,8 +22,8 @@ export const http = axios.create({
         return JSON.stringify(data)
       }
       return data
-    }
-  ]
+    },
+  ],
 })
 
 function closeLoading(url) {
@@ -53,7 +53,7 @@ http.interceptors.request.use(config => {
     closeLoading(loadingUrl)
 
     loadingInstances[loadingUrl] = Loading.service({
-      target: config.loadingMaskTarget
+      target: config.loadingMaskTarget,
     })
   }
   return config
@@ -103,7 +103,7 @@ http.interceptors.response.use(
 
     msgBoxErr(err.message.indexOf('timeout') > -1 ? i18n.t('global.timeout') : i18n.t('global.500'), 'SERVER')
     return Promise.reject(err)
-  }
+  },
 )
 
 const apiMap = {}

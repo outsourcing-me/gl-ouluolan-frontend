@@ -6,5 +6,5 @@ export default {
       const component = context(v).default
       Vue.component(component.name, component)
     })
-  }
+  },
 }

@@ -1,65 +1,42 @@
 <template>
-  <div>
-    <div class="index">
-      {{textComputed}}13131
+  <section class="index">
+    <div class="banner">
+      <div class="banner__inner">
+        <img class="banner__content" src="@/assets/images/home-banner.png" alt="home banner" />
+      </div>
     </div>
-    <button @click="bindTest">点击</button>
-  </div>
+  </section>
 </template>
 
 <script>
-import { State } from 'vuex-class'
+// import { State } from 'vuex-class'
 import { Vue, Component } from 'vue-property-decorator'
-
-const textBind = {
-  name: 'bind'
-}
-
-function haha() {
-  Logger.info('haha', this.name)
-}
 
 @Component
 export default class Index extends Vue {
-  text = '这是首页'
-  number = 1_000_000
-  empty = null
-  empty2 = 0
-  @State
-  foo
 
-  get textComputed() {
-    let text = do {
-      this?.text + ' do ' // eslint-disable-line
-    }
-    return (text |> this.processData) + this?.text2 + ' computed' + this?.number + this.empty2 ?? 'empty2'
-  }
-
-  get textComputed2() {
-    // prettier-ignore
-    this.empty = this?.empty || 'haha' // 用 ||= 会导致prettier 不工作
-    return this.empty
-  }
-
-  bindTest() {
-    ;textBind::haha()
-  }
-
-  processData(v) {
-    return v + ' prorcessed '
-  }
-
-  mounted() {
-    Logger.info(this.text, '首页成功加载')
-  }
 }
 </script>
 
 <style lang="scss" scoped>
-.index {
-  position: fixed 0 0 |;
-  size: 100px;
-  margin: | auto;
-  color: red blue;
+.banner {
+  background: url(~assets/images/home-banner-bg.jpg) no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 653px;
+  @media screen and (min-width: 1921px) {
+    background-size: cover;
+  }
+}
+.banner__inner {
+  width: $--container-width;
+  margin:0 auto;
+  position: relative;
+  height: 100%;
+}
+.banner__content {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
 }
 </style>

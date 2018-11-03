@@ -133,5 +133,5 @@ export default {
       }
       return date ? moment(date).format(format) : '-'
     })
-  }
+  },
 }

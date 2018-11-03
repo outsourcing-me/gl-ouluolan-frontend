@@ -11,7 +11,7 @@ module.exports = {
   // 行尾逗号,默认none,可选 none|es5|all
   // es5 包括es5中的数组、对象
   // all 包括函数对象等所有可选
-  trailingComma: 'none',
+  trailingComma: 'all',
   // 对象中的空格 默认true
   // true: { foo: bar }
   // false: {foo: bar}
@@ -29,5 +29,5 @@ module.exports = {
   // avoid 能省略括号的时候就省略 例如x => x
   // always 总是有括号
   arrowParens: 'avoid',
-  parser: 'babylon' //代码的解析引擎，默认为babylon，与babel相同。
+  parser: 'babylon', //代码的解析引擎，默认为babylon，与babel相同。
 }

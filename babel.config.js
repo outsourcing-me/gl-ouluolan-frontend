@@ -15,9 +15,9 @@ module.exports = {
     [
       '@babel/plugin-proposal-decorators',
       {
-        legacy: true
-      }
+        legacy: true,
+      },
     ],
-    ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }]
-  ]
+    ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
+  ],
 }

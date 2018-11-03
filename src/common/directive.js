@@ -42,7 +42,7 @@ export default {
 
       unbind(el) {
         el.removeEventListener('mousedown', handler)
-      }
+      },
     })
-  }
+  },
 }

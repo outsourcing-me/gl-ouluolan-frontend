@@ -5,7 +5,7 @@ import { each, isNumber, merge, mergeWith } from 'lodash'
 
 const orderMap = {
   descending: 'DESC',
-  ascending: 'ASC'
+  ascending: 'ASC',
 }
 
 // 计算容器高度模块
@@ -33,15 +33,15 @@ export const domHeightMixin = {
         }
       })
       return height
-    }
+    },
   },
 
   data() {
     return {
       bodyHeight: window.innerHeight,
-      tableHeight: 500
+      tableHeight: 500,
     }
-  }
+  },
 }
 
 // 表格通用模块
@@ -65,7 +65,7 @@ export const tableListMixin = {
       this.filter = merge(this.filter, { refresh: Math.random() })
       this.$router.push({
         name: this.$route.name,
-        query: this.pruneParams(this.filter)
+        query: this.pruneParams(this.filter),
       })
     },
 
@@ -99,7 +99,7 @@ export const tableListMixin = {
 
     tableRowIndex(index) {
       return (this.filter.pageNumber - 1) * this.filter.pageSize + index + 1
-    }
+    },
   },
 
   created() {
@@ -122,8 +122,8 @@ export const tableListMixin = {
       immediate: true,
       handler() {
         this._fetchData()
-      }
-    }
+      },
+    },
   },
 
   data() {
@@ -131,9 +131,9 @@ export const tableListMixin = {
       activeOrg: null,
       page: {
         total: 0,
-        sizes: [8, 10, 12, 16, 20, 24, 28, 32, 36, 40, 50, 100, 200]
+        sizes: [8, 10, 12, 16, 20, 24, 28, 32, 36, 40, 50, 100, 200],
       },
-      maxHeight: 6000
+      maxHeight: 6000,
     }
-  }
+  },
 }

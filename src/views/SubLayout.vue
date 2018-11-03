@@ -45,7 +45,7 @@ export default class SubLayout extends Vue {
       this.crumbs = this.$route.matched.slice(1).map(v => {
         return {
           name: v.meta.title.split('-')[0],
-          routeName: v.name
+          routeName: v.name,
         }
       })
     }
@@ -57,7 +57,7 @@ export default class SubLayout extends Vue {
   data() {
     return {
       crumbsVisible: true,
-      crumbs: []
+      crumbs: [],
     }
   }
 }

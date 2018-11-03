@@ -5,18 +5,12 @@ export default [
   {
     path: '/',
     name: 'root',
-    redirect: { name: 'dashboard' },
+    redirect: { name: 'index' },
     component: () => import('@/views/Layout.vue'),
-    children: flatten(routes.keys().map(key => routes(key).default))
-  },
-  {
-    path: '/index',
-    name: 'index',
-    component: () => import('@/views/Index.vue'),
-    meta: { title: '首页-数据标注平台', skipAuth: true }
+    children: flatten(routes.keys().map(key => routes(key).default)),
   },
   {
     path: '*',
-    redirect: '/'
-  }
+    redirect: '/',
+  },
 ]

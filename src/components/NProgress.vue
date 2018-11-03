@@ -9,15 +9,15 @@ const nprogress = require('@/vendor/nprogress.js')
 export default {
   name: 'NProgress',
   props: {
-    parent: String
+    parent: String,
   },
   created() {
     if (this.parent) {
       nprogress.configure({
-        parent: this.parent
+        parent: this.parent,
       })
     }
-  }
+  },
 }
 </script>
 

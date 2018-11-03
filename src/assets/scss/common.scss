@@ -3,8 +3,8 @@ html {
   overflow: hidden;
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; // font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light', 'Microsoft YaHei', Arial, sans-serif;
-  min-width: 1200px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei', sans-serif; // font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light', 'Microsoft YaHei', Arial, sans-serif;
   overflow: hidden;
   overflow-x: auto;
   min-height: 100vh;
@@ -18,7 +18,7 @@ body {
 }
 
 .iconfont {
-  color: white;
+  font-size: inherit;
 }
 
 .color-green {
@@ -236,9 +236,7 @@ em {
   }
 }
 
-@each $pos in left,
-right,
-center {
+@each $pos in left, right, center {
   .text-#{$pos} {
     text-align: #{$pos};
   }

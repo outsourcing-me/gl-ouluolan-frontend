@@ -8,11 +8,8 @@ export default {
      * @param  {?Object} childVal }
      * @return {?Object}       [_dt_hooks _dt_watches Object]
      */
-    strategies._dt_hooks = strategies._dt_watches = function(
-      parentVal = {},
-      childVal = {}
-    ) {
+    strategies._dt_hooks = strategies._dt_watches = function(parentVal = {}, childVal = {}) {
       return { ...parentVal, ...childVal }
     }
-  }
+  },
 }

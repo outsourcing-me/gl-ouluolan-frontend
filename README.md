@@ -1,4 +1,4 @@
-# data-tag-frontend
+# ouluolan-frontend
 
 ## Project setup
 ```

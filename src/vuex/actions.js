@@ -13,9 +13,7 @@ export default {
 
   // 登录
   async login({ commit, dispatch }, params = {}) {
-    const data = await Api.login
-      .post(params.user, params.config)
-      .then(res => res.data)
+    const data = await Api.login.post(params.user, params.config).then(res => res.data)
 
     if (data.access_token) commit('updateToken', data.access_token || '')
     if (data.refresh_token) {
@@ -40,16 +38,13 @@ export default {
     router.push({
       name: 'login',
       query: {
-        redirect:
-          router.history.current.name !== 'login'
-            ? encodeURIComponent(router.history.current.fullPath)
-            : ''
-      }
+        redirect: router.history.current.name !== 'login' ? encodeURIComponent(router.history.current.fullPath) : '',
+      },
     })
 
     logoutLock = true
     setTimeout(() => {
       logoutLock = false
     }, 5000)
-  }
+  },
 }

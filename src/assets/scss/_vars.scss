@@ -1,7 +1,7 @@
 // ----- 颜色 -----
-$--primary-font-color: #333;
-$--minor-font-color: #bababa;
-$--primary-color: #0076ff;
+$--primary-font-color: #4d4d4d;
+$--minor-font-color: #777777;
+$--primary-color: #127e42;
 $--border-color: black;
 $--header-color: #f3f6f8;
 $--color-green: #356604;
@@ -13,11 +13,12 @@ $--color-unimportant: #929aa3;
 $--color-yellow: #f7ba2a;
 
 // ----- 布局尺寸 -----
-$--header-height: 70px; // 头部高度
-$--crumbs-height: 70px; // 头部高度
+$--container-width: 1200px;
+$--header-height: 80px; // 头部高度
+$--crumbs-height: 80px; // 头部高度
 $--border-radius: 2px;
 $--menu-width: 220px;
-$--menu-height: 50px;
+$--menu-height: 80px;
 $--menu-bg-color: #33404e;
 $--menu-active-color: #5b91db;
 $--container-padding: 15px;

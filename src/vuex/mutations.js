@@ -9,5 +9,5 @@ export default {
   updateToken(state, token = '') {
     window.localStorage.token = token
     state.token = token
-  }
+  },
 }

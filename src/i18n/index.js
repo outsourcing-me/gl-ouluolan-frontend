@@ -7,7 +7,7 @@ Vue.use(VueI18n)
 
 const i18n = new VueI18n({
   locale: store.state.lang, // set locale
-  messages // set locale messages
+  messages, // set locale messages
 })
 
 export default i18n
