@@ -7,7 +7,7 @@
         </el-menu-item>
       </template>
     </el-menu>
-    <div class="contact ml10">
+    <div class="contact ml20">
       <i class="iconfont icon-contact mr5"></i>
       <a href="tel://4001515876">4001515876</a>
     </div>
@@ -113,6 +113,9 @@ export default class Menu extends Vue {
   }
   .el-menu--horizontal {
     border: none;
+    & > .el-menu-item.is-active {
+      border: none;
+    }
   }
   .el-menu-item {
     color: $--primary-color;

@@ -13,7 +13,7 @@
       <span>欧罗兰艺术漆</span>
       <span>地址：吉林省长春市农安县</span>
       <span>电话：<a href="tel://0431-8888888">0431-8888888</a></span>
-      <span>吉ICP备12311231</span>
+      <span>吉ICP备18005482号-1</span>
     </div>
   </footer>
 </template>

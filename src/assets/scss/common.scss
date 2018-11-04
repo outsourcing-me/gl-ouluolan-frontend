@@ -3,6 +3,7 @@ body {
     'WenQuanYi Micro Hei', sans-serif; // font-family: 'Helvetica Neue', 'Helvetica', tahoma, 'Hiragino Sans GB', 'PingFang SC', 'STHeitiSC-Light', 'Microsoft YaHei', Arial, sans-serif;
   overflow-y: auto;
   min-height: 100vh;
+  min-width: 1200px;
   color: $--primary-font-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
