@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-us"></section>
+  <section class="contact-us">尚未完善</section>
 </template>
 
 <script>

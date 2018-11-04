@@ -1,5 +1,5 @@
 <template>
-  <section class="investment"></section>
+  <section class="investment">尚未完善</section>
 </template>
 
 <script>

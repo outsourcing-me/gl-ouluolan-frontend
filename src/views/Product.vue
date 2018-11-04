@@ -1,5 +1,5 @@
 <template>
-  <section class="product"></section>
+  <section class="product">尚未完善</section>
 </template>
 
 <script>

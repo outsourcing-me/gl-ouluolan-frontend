@@ -1,10 +1,12 @@
 <template>
   <header class="header clfix">
-    <div class="header__logo">
-      <h2>欧罗兰艺术漆</h2>
-      <p>OU LUO LAN YI SHU QI</p>
+    <div class="header__inner">
+      <div class="header__logo">
+        <h2>欧罗兰艺术漆</h2>
+        <p>OU LUO LAN YI SHU QI</p>
+      </div>
+      <dt-menu class="menu"></dt-menu>
     </div>
-    <dt-menu class="menu"></dt-menu>
   </header>
 </template>
 
@@ -19,11 +21,20 @@ export default class Header extends Vue {}
 <style lang="scss" scoped>
 .header /deep/ {
   height: $--header-height;
-  width: $--container-width;
-  margin: 0 auto;
+  background: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99;
   .menu {
     float: right;
   }
+}
+.header__inner {
+  width: $--container-width;
+  margin: 0 auto;
+  height: 100%;
 }
 .header__logo /deep/ {
   text-align: center;
