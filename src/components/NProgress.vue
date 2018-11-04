@@ -29,9 +29,14 @@ export default {
   position: fixed !important;
   z-index: 999999;
 }
+#nprogress .spinner-icon  {
+  border-top-color: $--primary-color;
+  border-left-color: $--primary-color;
+}
 
 .nprogress-custom-parent #nprogress .bar {
   position: fixed !important;
   z-index: 999999;
+  background: $--primary-color;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <footer class="footer">
     <div class="links">
-      <router-link to="{name: 'index'}">首页</router-link>
-      <router-link to="{name: 'aboutUs'}">关于我们</router-link>
-      <router-link to="{name: 'product'}">产品展示</router-link>
-      <router-link to="{name: 'case'}">成功案列</router-link>
-      <router-link to="{name: 'investment'}">招商加盟</router-link>
-      <router-link to="{name: 'news'}">新闻中心</router-link>
-      <router-link to="{name: 'contactUs'}">联系我们</router-link>
+      <router-link :to="{name: 'index'}">首页</router-link>
+      <router-link :to="{name: 'aboutUs'}">关于我们</router-link>
+      <router-link :to="{name: 'product'}">产品展示</router-link>
+      <router-link :to="{name: 'case'}">成功案列</router-link>
+      <router-link :to="{name: 'investment'}">招商加盟</router-link>
+      <router-link :to="{name: 'news'}">新闻中心</router-link>
+      <router-link :to="{name: 'contactUs'}">联系我们</router-link>
     </div>
     <div class="note">
       <span>欧罗兰艺术漆</span>

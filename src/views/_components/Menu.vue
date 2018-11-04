@@ -2,7 +2,7 @@
   <nav class="menus">
     <el-menu class="menu-container" :unique-opened="true" mode="horizontal" :default-openeds="defaultOpeneds" :default-active="defaultActive" :router="true" ref="menus">
       <template v-for="menu in menus">
-        <el-menu-item :index="menu.index" :route="menu.route" v-show="!menu.hidden" :key="menu.index">
+        <el-menu-item class="menu-item" v-ripple-btn="'li'" :index="menu.index" :route="menu.route" v-show="!menu.hidden" :key="menu.index">
           {{menu.name}}
         </el-menu-item>
       </template>
