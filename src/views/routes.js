@@ -78,8 +78,8 @@ export default [
     },
   },
   {
-    path: '/contactus',
-    name: 'contactus',
+    path: '/contactUs',
+    name: 'contactUs',
     component: () => import('@/views/ContactUs.vue'),
     meta: {
       title: '联系我们-欧罗兰艺术漆',
